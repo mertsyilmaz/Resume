@@ -27,6 +27,7 @@ namespace ResumeMvcCore
         }
         public IConfiguration Configuration { get; }
 
+        // test
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
