@@ -1,0 +1,57 @@
+﻿@model EditUserViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card shadow mb-12">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Edit User</h6>
+    </div>
+    <div class="card-body">
+        <form asp-action="EditUser">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" placeholder="Enter Category Name..." />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" placeholder="Enter Category Name..." />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="text-dark">User roles</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.Roles.Any())
+                    {
+                        foreach (var role in Model.Roles)
+                        {
+                            <h6 class="card-title">@role</h6>
+                        }
+                    }
+                    else
+                    {
+                        <h6 class="card-title">None at the moment</h6>
+                    }
+                </div>
+                <div class="card-footer">
+                    <a asp-controller="Administration" asp-action="ManageUserRoles" asp-route-UserId="@Model.Id" class="btn btn-primary">Manage Roles</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <a asp-action="ListUsers" class="float-left">
+                    <span class="icon ">
+                        <i class="fas fa-arrow-alt-circle-left"></i>
+                        Go back to list
+                    </span>
+                </a>
+                <input type="submit" value="Update" class="btn btn-success float-right" />
+            </div>
+        </form>
+    </div>
+</div>

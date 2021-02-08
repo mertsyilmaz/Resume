@@ -1,0 +1,105 @@
+﻿@model Information
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card shadow mb-12">
+    <div class="card-header py-3">
+        <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+                <h6 class="m-0 font-weight-bold text-primary">Information Details</h6>
+            </div>
+            <div class="col-6 m-0 p-0 float-right">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success btn-circle-split btn-sm float-right">
+                    <span class="icon ">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span class="text">Edit Information</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="Firstname" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="Firstname" class="form-control" disabled />
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="Surname" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="Surname" class="form-control" disabled />
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="DateOfBirth" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="DateOfBirth" class="form-control" disabled />
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="Title" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="Title" class="form-control" disabled />
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="Description" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <textarea asp-for="Description" class="form-control" rows="5" disabled></textarea>
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="Address" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <textarea asp-for="Address" class="form-control" rows="3" disabled></textarea>
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="Email" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="Email" class="form-control" disabled />
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="PhoneNumber" class="form-control" disabled />
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="Location" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="Location" class="form-control" disabled />
+            </dd>
+        </dl>
+        <div class="form-group">
+            <a asp-action="Index" class="float-left">
+                <span class="icon ">
+                    <i class="fas fa-arrow-alt-circle-left"></i>
+                    Go back to list
+                </span>
+            </a>
+        </div>
+    </div>
+</div>

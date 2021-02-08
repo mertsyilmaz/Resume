@@ -1,0 +1,90 @@
+﻿@model Experience
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card shadow mb-12">
+    <div class="card-header py-3">
+        <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+                <h6 class="m-0 font-weight-bold text-primary">Experience Details</h6>
+            </div>
+            <div class="col-6 m-0 p-0 float-right">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success btn-circle-split btn-sm float-right">
+                    <span class="icon ">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span class="text">Edit Experience</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="CompanyName" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="CompanyName" class="form-control" disabled />
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="DepartmentName" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="DepartmentName" class="form-control" disabled />
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="Title" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="Title" class="form-control" disabled />
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="DateOfStart" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="DateOfStart" class="form-control" disabled />
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="DateOfEnd" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="DateOfEnd" class="form-control" disabled />
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="Description" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <textarea asp-for="Description" class="form-control" rows="5" disabled ></textarea>
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="IsCurrent" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10 custom-control custom-switch">
+                <input asp-for="IsCurrent" class="custom-control-input" disabled />
+                <label class="custom-control-label" asp-for="IsCurrent">Toggle me</label>
+            </dd>
+        </dl>
+        <div class="form-group">
+            <a asp-action="Index" class="float-left">
+                <span class="icon ">
+                    <i class="fas fa-arrow-alt-circle-left"></i>
+                    Go back to list
+                </span>
+            </a>
+        </div>
+    </div>
+</div>

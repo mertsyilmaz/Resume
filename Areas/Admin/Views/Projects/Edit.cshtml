@@ -1,0 +1,66 @@
+﻿@model ProjectCreateViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card shadow mb-12">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Edit Project</h6>
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            @*<input type="hidden" asp-for="img"  />*@
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="Enter Project Name..." />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TechnologyId" class="control-label"></label>
+                <select multiple asp-for="TechnologyId" asp-items="ViewBag.Technologies" class="custom-select"></select>
+                <span asp-validation-for="TechnologyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select multiple asp-for="CategoryId" asp-items="ViewBag.Categories" class="custom-select"></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" placeholder="Enter Description..." />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Images" class="control-label"></label>
+                <div class="custom-file">
+                    <input multiple asp-for="Images" class="custom-file" />
+                </div>
+                <span asp-validation-for="Images" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @foreach (var image in ViewBag.Images)
+                {
+                    <img src="~/images/@image.ImageName" asp-append-version="true" width="200" height="200" />
+                }
+            </div>
+            <div class="form-group">
+                <a asp-action="Index" class="float-left">
+                    <span class="icon ">
+                        <i class="fas fa-arrow-alt-circle-left"></i>
+                        Go back to list
+                    </span>
+                </a>
+                <input type="submit" value="Update" class="btn btn-success float-right" />
+            </div>
+        </form>
+    </div>
+</div>
+

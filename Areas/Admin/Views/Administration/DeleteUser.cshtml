@@ -1,0 +1,51 @@
+﻿@model IdentityUser
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card shadow mb-12">
+    <div class="card-header py-3">
+        <div class="row m-0 p-0">
+            <div class="col-6 m-0 p-0">
+                <h6 class="m-0 font-weight-bold text-primary">Delete User</h6>
+                <span class="text-sm-center font-weight-bolder">Are you sure you want to delete this?</span>
+            </div>
+            <div class="col-6 m-0 p-0 float-right">
+                <form asp-action="DeleteUserConfirm">
+                    <input type="hidden" asp-for="Id" />
+                    <button type="submit" value="Delete" class="btn btn-danger btn-sm float-right">
+                        <i class="fas fa-trash"></i> Delete User
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="UserName" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="UserName" class="form-control" disabled />
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label asp-for="Email" class="control-label"></label>
+            </dt>
+            <dd class="col-sm-10">
+                <input asp-for="Email" class="form-control" disabled />
+            </dd>
+        </dl>
+        <div class="form-group">
+            <a asp-action="ListUsers" class="float-left">
+                <span class="icon ">
+                    <i class="fas fa-arrow-alt-circle-left"></i>
+                    Go back to list
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+}

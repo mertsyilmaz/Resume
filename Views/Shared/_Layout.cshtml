@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewData["Title"] - My Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Kerge - Resume / CV / vCard Template" />
+    <meta name="keywords" content="vcard, resposnive, retina, resume, jquery, css3, bootstrap, Material CV, portfolio" />
+    <meta name="author" content="lmpixels" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="~/SiteTemplate/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/SiteTemplate/css/animate.css" rel="stylesheet" />
+    <link href="~/SiteTemplate/css/animations.css" rel="stylesheet" />
+    <link href="~/SiteTemplate/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/SiteTemplate/css/magnific-popup.css" rel="stylesheet" />
+    <link href="~/SiteTemplate/css/main.css" rel="stylesheet" />
+    <script src="~/SiteTemplate/js/modernizr.custom.js"></script>
+</head>
+<body>
+    <div id="page" class="page">
+        <header id="site_header" class="header mobile-menu-hide">
+            <div class="header-content clearfix">
+                <div class="my-photo">
+                    <img src="~/SiteTemplate/images/photo.jpg" />
+                </div>
+                <div class="site-title-block">
+                    <div class="site-title">Alex Smith</div>
+                </div>
+                <div class="site-nav">
+                    <ul id="nav" class="site-main-menu">
+                        <li>
+                            <a asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Resume" asp-action="Index">Resume</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Contact" asp-action="Index">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="copyrights">
+                    <div>
+                        <a class="text-dark" asp-area="Admin" asp-controller="Home" asp-action="Index">Manage Website</a>
+                    </div>
+                    <hr />
+                    <span>© 2021 All rights reserved.</span>
+                </div>
+            </div>
+        </header>
+        <div class="mobile-header mobile-visible">
+            <div class="mobile-logo-container">
+                <div class="mobile-header-image">
+                    <a href="#">
+                        <img src="~/SiteTemplate/images/photo.jpg" />
+                    </a>
+                </div>
+                <div class="mobile-site-title">
+                    <a href="#">Alex Smith</a>
+                </div>
+            </div>
+            <a class="menu-toggle mobile-visible">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <div id="main" class="site-main">
+            <div class="pt-wrapper">
+                <div class="subpages">
+                    <!-- Content -->
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/SiteTemplate/js/jquery-2.1.3.min.js"></script>
+    <script src="~/SiteTemplate/js/bootstrap.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿@model Certificate
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card shadow mb-12">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Edit Certificate</h6>
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ImageUrl" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="Enter Certificate Name..." />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SchoolName" class="control-label"></label>
+                <input asp-for="SchoolName" class="form-control" placeholder="Enter School Name..." />
+                <span asp-validation-for="SchoolName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfIssue" class="control-label"></label>
+                <input asp-for="DateOfIssue" class="form-control" />
+                <span asp-validation-for="DateOfIssue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control" placeholder="Enter Certificate Description..." rows="5"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <input asp-for="ImageFile" class="form-control" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <img src="@("~/images/"+Model.ImageUrl)" asp-append-version="true" width="200" height="200" />
+            </div>
+            <div class="form-group">
+                <a asp-action="Index" class="float-left">
+                    <span class="icon ">
+                        <i class="fas fa-arrow-alt-circle-left"></i>
+                        Go back to list
+                    </span>
+                </a>
+                <input type="submit" value="Update" class="btn btn-success float-right" />
+            </div>
+        </form>
+    </div>
+</div>

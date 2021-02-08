@@ -1,0 +1,25 @@
+﻿@model Information
+
+@{
+    ViewData["Title"] = "Home Page";
+    var fullName = "";
+    var title = "";
+    if (Model != null)
+    {
+        fullName = Model.Firstname + " " + Model.Surname;
+        title = Model.Title;
+    }
+}
+<section data-id="home" data-title="Home" class="pt-page pt-page-home start-page pt-page-current">
+    <div class="section-inner vcentered">
+        <div class="mask"></div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="title-block">
+                    <h2 class="text-uppercase">@fullName</h2>
+                    <h3 class="sp-subtitle">@title</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

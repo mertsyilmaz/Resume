@@ -1,0 +1,76 @@
+﻿@model Experience
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card shadow mb-12">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Create Experience</h6>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CompanyName" class="control-label"></label>
+                <input asp-for="CompanyName" class="form-control" placeholder="Enter Company Name..." />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartmentName" class="control-label"></label>
+                <input asp-for="DepartmentName" class="form-control" placeholder="Enter Department Name..." />
+                <span asp-validation-for="DepartmentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" placeholder="Enter Title..." />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfStart" class="control-label"></label>
+                <input asp-for="DateOfStart" class="form-control" />
+                <span asp-validation-for="DateOfStart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfEnd" class="control-label"></label>
+                <input asp-for="DateOfEnd" class="form-control" />
+                <span asp-validation-for="DateOfEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="5" placeholder="Enter Description..."></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group ">
+                <label asp-for="IsCurrent" class="control-label"></label>
+                <div class="custom-control custom-switch">
+                    <input asp-for="IsCurrent"  class="custom-control-input" />
+                    <label class="custom-control-label CurrentLabel" asp-for="IsCurrent">No</label>
+                </div>
+                <span asp-validation-for="IsCurrent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a asp-action="Index" class="float-left">
+                    <span class="icon ">
+                        <i class="fas fa-arrow-alt-circle-left"></i>
+                        Go back to list
+                    </span>
+                </a>
+                <input type="submit" value="Create" class="btn btn-success float-right" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts{ 
+    <script>
+        $('#IsCurrent').change(function () {
+            if (this.checked == true)
+            {
+                $('.CurrentLabel').html("Yes");
+            }
+            else {
+                $('.CurrentLabel').html("No");
+            }
+        });
+    </script>
+}

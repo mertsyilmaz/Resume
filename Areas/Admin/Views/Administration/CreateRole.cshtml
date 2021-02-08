@@ -1,0 +1,30 @@
+﻿@model CreateRoleViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card shadow mb-12">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Create Role</h6>
+    </div>
+    <div class="card-body">
+        <form asp-action="CreateRole">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RoleName" class="control-label"></label>
+                <input asp-for="RoleName" class="form-control" placeholder="Enter role name..." />
+                <span asp-validation-for="RoleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a asp-action="ListRoles" class="float-left">
+                    <span class="icon ">
+                        <i class="fas fa-arrow-alt-circle-left"></i>
+                        Go back to list
+                    </span>
+                </a>
+                <input type="submit" value="Create" class="btn btn-success float-right" />
+            </div>
+        </form>
+    </div>
+</div>

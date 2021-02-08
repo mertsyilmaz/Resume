@@ -1,0 +1,160 @@
+﻿@model ResumeCreateViewModel
+
+@{
+    ViewData["Title"] = "Resume";
+    var fullName = "";
+    var title = "";
+    var description = "";
+    var dateOfBirth = "";
+    var address = "";
+    var email = "";
+    var phoneNumber = "";
+    if (Model.Information != null)
+    {
+        fullName = Model.Information.Firstname + " " + Model.Information.Surname;
+        title = "(" + Model.Information.Title + ")";
+        description = Model.Information.Description;
+        dateOfBirth = Model.Information.DateOfBirth.ToShortDateString();
+        address = Model.Information.Address;
+        email = Model.Information.Email;
+        phoneNumber = Model.Information.PhoneNumber;
+    }
+
+}
+<section class="pt-page pt-page-current" data-id="resume">
+    <div class="section-inner custom-page-content">
+        <div class="section-title-block second-style">
+            <h2 class="section-title">Resume</h2>
+        </div>
+        <div class="section-content">
+            @if (Model.Information != null)
+            {
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8">
+                        <h3>@fullName @title</h3>
+                        <p>@description</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <ul class="info-list">
+                            <li>
+                                <span class="title">Birthday</span>
+                                <span class="value">@dateOfBirth</span>
+                            </li>
+                            <li>
+                                <span class="title">Address</span>
+                                <span class="value">@address</span>
+                            </li>
+                            <li>
+                                <span class="title">e-mail</span>
+                                <span class="value">
+                                    <a href="mailto:@email">@email</a>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="title">Phone</span>
+                                <span class="value">@phoneNumber</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+
+            <div class="p-5"></div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8">
+                    <div class="col-inner bs-30">
+                        @if (Model.Educations.Count > 0)
+                        {
+                            <div class="block-title">
+                                <h3>Education</h3>
+                            </div>
+                            <div class="timeline timeline-second-style bs-30 clearfix">
+
+                                @foreach (var education in Model.Educations)
+                                {
+                                    <div class="timeline-item clearfix">
+                                        <div class="left-part">
+                                            <h5 class="item-period">@education.DateOfStart.Year - @education.DateOfEnd.Year</h5>
+                                            <span class="item-company">@education.SchoolName</span>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="right-part">
+                                            <h4 class="item-title">@education.DepartmentName</h4>
+                                            <p>@education.Description</p>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        @if (Model.Certificates.Count > 0)
+                        {
+                            <div class="block-title">
+                                <h3>Certificates<span></span></h3>
+                            </div>
+                            <div class="timeline timeline-second-style bs-30 clearfix">
+                                @foreach (var certificate in Model.Certificates)
+                                {
+                                    <div class="timeline-item clearfix">
+                                        <div class="left-part">
+                                            <h5 class="item-period">@certificate.DateOfIssue.Year</h5>
+                                            <span class="item-company">@certificate.SchoolName</span>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="right-part">
+                                            <h4 class="item-title">@certificate.Name</h4>
+                                            <p>@certificate.Description</p>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        @if (Model.Experiences.Count > 0)
+                        {
+                            <div class="block-title">
+                                <h3>Experience<span></span></h3>
+                            </div>
+                            <div class="timeline timeline-second-style clearfix">
+                                @foreach (var experience in Model.Experiences)
+                                {
+                                    <div class="timeline-item clearfix">
+                                        <div class="left-part">
+                                            <h5 class="item-period">@experience.DateOfStart.ToShortDateString() - @experience.DateOfEnd.ToShortDateString()</h5>
+                                            <span class="item-company">@experience.CompanyName</span>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="right-part">
+                                            <h4 class="item-title">@experience.Title</h4>
+                                            <p>@experience.Description</p>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="col-inner">
+                        @if (Model.Skills.Count > 0)
+                        {
+                            <div class="block-title">
+                                <h3>Skills<span></span></h3>
+                            </div>
+                            <div class="skills-info skills-second-style">
+                                @foreach (var skill in Model.Skills)
+                                {
+                                    <div class="clearfix">
+                                        <h4>@skill.Name</h4>
+                                        <div class="skill-value">@skill.Percent%</div>
+                                    </div>
+                                    <div class="skill-container">
+                                        <div class="skill-percentage" style="width:@(skill.Percent+"%")"></div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
