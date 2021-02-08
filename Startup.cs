@@ -10,7 +10,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ResumeMvcCore.Models;
 using ResumeMvcCore.Models.EntitiyFramework;
+using ResumeMvcCore.Models.GoogleReCAPTCHA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +48,9 @@ namespace ResumeMvcCore
                 options.LogoutPath = new PathString("/Admin/Account/Logout");
                 options.AccessDeniedPath = new PathString("/Admin/Account/AccessDenied");
             });
+
+            services.Configure<ReCAPTCHA>(Configuration.GetSection("GooglereCAPTCHA"));
+            services.AddTransient<ReCAPTCHAService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
